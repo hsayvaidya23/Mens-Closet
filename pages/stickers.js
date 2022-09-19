@@ -1,10 +1,10 @@
 import React from 'react'
-import Link from "next/link";
+import Link from 'next/link'
 
-const Mugs = () => {
+const stickers = () => {
   return (
     <div>
-      <section className="text-gray-600 body-font">
+        <section className="text-gray-600 body-font">
         <div className="container px-5 py-24 mx-auto">
           <div className="flex flex-wrap -m-4">
             <Link href={"/product/Wear-the-code"}>
@@ -12,8 +12,8 @@ const Mugs = () => {
                 <a className="block relative rounded overflow-hidden">
                   <img
                     alt="ecommerce"
-                    className=" m-auto md:mx-0 block"
-                    src="https://images-eu.ssl-images-amazon.com/images/W/WEBP_402378-T2/images/I/4129wDdJP3L._SX300_SY300_QL70_FMwebp_.jpg"
+                    className=" m-auto h-[30vh] md:h-[36vh] block"
+                    src="https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/91TCesaFUTL._SL1500_.jpg"
                   />
                 </a>
                 <div className=" mt-4 text-center md:text-left">
@@ -33,8 +33,8 @@ const Mugs = () => {
                 <a className="block relative rounded overflow-hidden">
                   <img
                     alt="ecommerce"
-                    className="m-auto  md:mx-0 block"
-                    src="https://images-eu.ssl-images-amazon.com/images/W/WEBP_402378-T2/images/I/4129wDdJP3L._SX300_SY300_QL70_FMwebp_.jpg"
+                    className="m-auto  h-[30vh] md:h-[36vh] block"
+                    src="https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/91TCesaFUTL._SL1500_.jpg"
                   />
                 </a>
                 <div className=" mt-4 text-center md:text-left">
@@ -54,8 +54,8 @@ const Mugs = () => {
                 <a className="block relative rounded overflow-hidden">
                   <img
                     alt="ecommerce"
-                    className="m-auto  md:mx-0 block"
-                    src="https://images-eu.ssl-images-amazon.com/images/W/WEBP_402378-T2/images/I/4129wDdJP3L._SX300_SY300_QL70_FMwebp_.jpg"
+                    className="m-auto  h-[30vh] md:h-[36vh] block"
+                    src="https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/91TCesaFUTL._SL1500_.jpg"
                   />
                 </a>
                 <div className=" mt-4 text-center md:text-left">
@@ -75,8 +75,8 @@ const Mugs = () => {
                 <a className="block relative rounded overflow-hidden">
                   <img
                     alt="ecommerce"
-                    className="m-auto  md:mx-0 block"
-                    src="https://images-eu.ssl-images-amazon.com/images/W/WEBP_402378-T2/images/I/4129wDdJP3L._SX300_SY300_QL70_FMwebp_.jpg"
+                    className="m-auto  h-[30vh] md:h-[36vh] block"
+                    src="https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/91TCesaFUTL._SL1500_.jpg"
                   />
                 </a>
                 <div className=" mt-4 text-center md:text-left">
@@ -96,8 +96,8 @@ const Mugs = () => {
                 <a className="block relative rounded overflow-hidden">
                   <img
                     alt="ecommerce"
-                    className="m-auto  md:mx-0 block"
-                    src="https://images-eu.ssl-images-amazon.com/images/W/WEBP_402378-T2/images/I/4129wDdJP3L._SX300_SY300_QL70_FMwebp_.jpg"
+                    className="m-auto  h-[30vh] md:h-[36vh] block"
+                    src="https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/91TCesaFUTL._SL1500_.jpg"
                   />
                 </a>
                 <div className=" mt-4 text-center md:text-left">
@@ -117,8 +117,8 @@ const Mugs = () => {
                 <a className="block relative rounded overflow-hidden">
                   <img
                     alt="ecommerce"
-                    className="m-auto  md:mx-0 block"
-                    src="https://images-eu.ssl-images-amazon.com/images/W/WEBP_402378-T2/images/I/4129wDdJP3L._SX300_SY300_QL70_FMwebp_.jpg"
+                    className="m-auto  h-[30vh] md:h-[36vh] block"
+                    src="https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/91TCesaFUTL._SL1500_.jpg"
                   />
                 </a>
                 <div className=" mt-4 text-center md:text-left">
@@ -138,8 +138,8 @@ const Mugs = () => {
                 <a className="block relative rounded overflow-hidden">
                   <img
                     alt="ecommerce"
-                    className="m-auto  md:mx-0 block"
-                    src="https://images-eu.ssl-images-amazon.com/images/W/WEBP_402378-T2/images/I/4129wDdJP3L._SX300_SY300_QL70_FMwebp_.jpg"
+                    className="m-auto  h-[30vh] md:h-[36vh] block"
+                    src="https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/91TCesaFUTL._SL1500_.jpg"
                   />
                 </a>
                 <div className=" mt-4 text-center md:text-left">
@@ -159,8 +159,8 @@ const Mugs = () => {
                 <a className="block relative rounded overflow-hidden">
                   <img
                     alt="ecommerce"
-                    className="m-auto  md:mx-0 block"
-                    src="https://images-eu.ssl-images-amazon.com/images/W/WEBP_402378-T2/images/I/4129wDdJP3L._SX300_SY300_QL70_FMwebp_.jpg"
+                    className="m-auto  h-[30vh] md:h-[36vh] block"
+                    src="https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/91TCesaFUTL._SL1500_.jpg"
                   />
                 </a>
                 <div className=" mt-4 text-center md:text-left">
@@ -180,8 +180,8 @@ const Mugs = () => {
                 <a className="block relative rounded overflow-hidden">
                   <img
                     alt="ecommerce"
-                    className="m-auto  md:mx-0 block"
-                    src="https://images-eu.ssl-images-amazon.com/images/W/WEBP_402378-T2/images/I/4129wDdJP3L._SX300_SY300_QL70_FMwebp_.jpg"
+                    className="m-auto  h-[30vh] md:h-[36vh] block"
+                    src="https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/91TCesaFUTL._SL1500_.jpg"
                   />
                 </a>
                 <div className=" mt-4 text-center md:text-left">
@@ -201,8 +201,8 @@ const Mugs = () => {
                 <a className="block relative rounded overflow-hidden">
                   <img
                     alt="ecommerce"
-                    className="m-auto  md:mx-0 block"
-                    src="https://images-eu.ssl-images-amazon.com/images/W/WEBP_402378-T2/images/I/4129wDdJP3L._SX300_SY300_QL70_FMwebp_.jpg"
+                    className="m-auto  h-[30vh] md:h-[36vh] block"
+                    src="https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/91TCesaFUTL._SL1500_.jpg"
                   />
                 </a>
                 <div className=" mt-4 text-center md:text-left">
@@ -222,8 +222,8 @@ const Mugs = () => {
                 <a className="block relative rounded overflow-hidden">
                   <img
                     alt="ecommerce"
-                    className="m-auto  md:mx-0 block"
-                    src="https://images-eu.ssl-images-amazon.com/images/W/WEBP_402378-T2/images/I/4129wDdJP3L._SX300_SY300_QL70_FMwebp_.jpg"
+                    className="m-auto  h-[30vh] md:h-[36vh] block"
+                    src="https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/91TCesaFUTL._SL1500_.jpg"
                   />
                 </a>
                 <div className=" mt-4 text-center md:text-left">
@@ -243,8 +243,8 @@ const Mugs = () => {
                 <a className="block relative rounded overflow-hidden">
                   <img
                     alt="ecommerce"
-                    className="m-auto  md:mx-0 block"
-                    src="https://images-eu.ssl-images-amazon.com/images/W/WEBP_402378-T2/images/I/4129wDdJP3L._SX300_SY300_QL70_FMwebp_.jpg"
+                    className="m-auto  h-[30vh] md:h-[36vh] block"
+                    src="https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/91TCesaFUTL._SL1500_.jpg"
                   />
                 </a>
                 <div className=" mt-4 text-center md:text-left">
@@ -264,8 +264,8 @@ const Mugs = () => {
                 <a className="block relative rounded overflow-hidden">
                   <img
                     alt="ecommerce"
-                    className="m-auto  md:mx-0 block"
-                    src="https://images-eu.ssl-images-amazon.com/images/W/WEBP_402378-T2/images/I/4129wDdJP3L._SX300_SY300_QL70_FMwebp_.jpg"
+                    className="m-auto  h-[30vh] md:h-[36vh] block"
+                    src="https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/91TCesaFUTL._SL1500_.jpg"
                   />
                 </a>
                 <div className=" mt-4 text-center md:text-left">
@@ -285,8 +285,8 @@ const Mugs = () => {
                 <a className="block relative rounded overflow-hidden">
                   <img
                     alt="ecommerce"
-                    className="m-auto  md:mx-0 block"
-                    src="https://images-eu.ssl-images-amazon.com/images/W/WEBP_402378-T2/images/I/4129wDdJP3L._SX300_SY300_QL70_FMwebp_.jpg"
+                    className="m-auto  h-[30vh] md:h-[36vh] block"
+                    src="https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/91TCesaFUTL._SL1500_.jpg"
                   />
                 </a>
                 <div className=" mt-4 text-center md:text-left">
@@ -306,8 +306,8 @@ const Mugs = () => {
                 <a className="block relative rounded overflow-hidden">
                   <img
                     alt="ecommerce"
-                    className="m-auto  md:mx-0 block"
-                    src="https://images-eu.ssl-images-amazon.com/images/W/WEBP_402378-T2/images/I/4129wDdJP3L._SX300_SY300_QL70_FMwebp_.jpg"
+                    className="m-auto  h-[30vh] md:h-[36vh] block"
+                    src="https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/91TCesaFUTL._SL1500_.jpg"
                   />
                 </a>
                 <div className=" mt-4 text-center md:text-left">
@@ -327,8 +327,8 @@ const Mugs = () => {
                 <a className="block relative rounded overflow-hidden">
                   <img
                     alt="ecommerce"
-                    className="m-auto  md:mx-0 block"
-                    src="https://images-eu.ssl-images-amazon.com/images/W/WEBP_402378-T2/images/I/4129wDdJP3L._SX300_SY300_QL70_FMwebp_.jpg"
+                    className="m-auto  h-[30vh] md:h-[36vh] block"
+                    src="https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/91TCesaFUTL._SL1500_.jpg"
                   />
                 </a>
                 <div className=" mt-4 text-center md:text-left">
@@ -348,8 +348,8 @@ const Mugs = () => {
                 <a className="block relative rounded overflow-hidden">
                   <img
                     alt="ecommerce"
-                    className="m-auto  md:mx-0 block"
-                    src="https://images-eu.ssl-images-amazon.com/images/W/WEBP_402378-T2/images/I/4129wDdJP3L._SX300_SY300_QL70_FMwebp_.jpg"
+                    className="m-auto  h-[30vh] md:h-[36vh] block"
+                    src="https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/91TCesaFUTL._SL1500_.jpg"
                   />
                 </a>
                 <div className=" mt-4 text-center md:text-left">
@@ -369,8 +369,8 @@ const Mugs = () => {
                 <a className="block relative rounded overflow-hidden">
                   <img
                     alt="ecommerce"
-                    className="m-auto  md:mx-0 block"
-                    src="https://images-eu.ssl-images-amazon.com/images/W/WEBP_402378-T2/images/I/4129wDdJP3L._SX300_SY300_QL70_FMwebp_.jpg"
+                    className="m-auto  h-[30vh] md:h-[36vh] block"
+                    src="https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/91TCesaFUTL._SL1500_.jpg"
                   />
                 </a>
                 <div className=" mt-4 text-center md:text-left">
@@ -390,8 +390,8 @@ const Mugs = () => {
                 <a className="block relative rounded overflow-hidden">
                   <img
                     alt="ecommerce"
-                    className="m-auto  md:mx-0 block"
-                    src="https://images-eu.ssl-images-amazon.com/images/W/WEBP_402378-T2/images/I/4129wDdJP3L._SX300_SY300_QL70_FMwebp_.jpg"
+                    className="m-auto  h-[30vh] md:h-[36vh] block"
+                    src="https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/91TCesaFUTL._SL1500_.jpg"
                   />
                 </a>
                 <div className=" mt-4 text-center md:text-left">
@@ -411,8 +411,8 @@ const Mugs = () => {
                 <a className="block relative rounded overflow-hidden">
                   <img
                     alt="ecommerce"
-                    className="m-auto  md:mx-0 block"
-                    src="https://images-eu.ssl-images-amazon.com/images/W/WEBP_402378-T2/images/I/4129wDdJP3L._SX300_SY300_QL70_FMwebp_.jpg"
+                    className="m-auto  h-[30vh] md:h-[36vh] block"
+                    src="https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/91TCesaFUTL._SL1500_.jpg"
                   />
                 </a>
                 <div className=" mt-4 text-center md:text-left">
@@ -434,4 +434,4 @@ const Mugs = () => {
   )
 }
 
-export default Mugs
+export default stickers
