@@ -13,7 +13,7 @@ const Tshirts = () => {
                   <img
                     alt="ecommerce"
                     className=" m-auto h-[30vh] md:h-[36vh] block"
-                    src="https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/71dFMe8x5gL._UY741_.jpg"
+                    src="https://m.media-amazon.com/images/I/61Mw4M+mHwL._UX569_.jpg"
                   />
                 </a>
                 <div className=" mt-4 text-center md:text-left">
@@ -34,7 +34,7 @@ const Tshirts = () => {
                   <img
                     alt="ecommerce"
                     className="m-auto  h-[30vh] md:h-[36vh] block"
-                    src="https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/71dFMe8x5gL._UY741_.jpg"
+                    src="https://m.media-amazon.com/images/I/61Mw4M+mHwL._UX569_.jpg"
                   />
                 </a>
                 <div className=" mt-4 text-center md:text-left">
@@ -55,7 +55,7 @@ const Tshirts = () => {
                   <img
                     alt="ecommerce"
                     className="m-auto  h-[30vh] md:h-[36vh] block"
-                    src="https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/71dFMe8x5gL._UY741_.jpg"
+                    src="https://m.media-amazon.com/images/I/61Mw4M+mHwL._UX569_.jpg"
                   />
                 </a>
                 <div className=" mt-4 text-center md:text-left">
@@ -76,7 +76,7 @@ const Tshirts = () => {
                   <img
                     alt="ecommerce"
                     className="m-auto  h-[30vh] md:h-[36vh] block"
-                    src="https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/71dFMe8x5gL._UY741_.jpg"
+                    src="https://m.media-amazon.com/images/I/61Mw4M+mHwL._UX569_.jpg"
                   />
                 </a>
                 <div className=" mt-4 text-center md:text-left">
@@ -97,7 +97,7 @@ const Tshirts = () => {
                   <img
                     alt="ecommerce"
                     className="m-auto  h-[30vh] md:h-[36vh] block"
-                    src="https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/71dFMe8x5gL._UY741_.jpg"
+                    src="https://m.media-amazon.com/images/I/61Mw4M+mHwL._UX569_.jpg"
                   />
                 </a>
                 <div className=" mt-4 text-center md:text-left">
@@ -118,7 +118,7 @@ const Tshirts = () => {
                   <img
                     alt="ecommerce"
                     className="m-auto  h-[30vh] md:h-[36vh] block"
-                    src="https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/71dFMe8x5gL._UY741_.jpg"
+                    src="https://m.media-amazon.com/images/I/61Mw4M+mHwL._UX569_.jpg"
                   />
                 </a>
                 <div className=" mt-4 text-center md:text-left">
@@ -139,7 +139,7 @@ const Tshirts = () => {
                   <img
                     alt="ecommerce"
                     className="m-auto  h-[30vh] md:h-[36vh] block"
-                    src="https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/71dFMe8x5gL._UY741_.jpg"
+                    src="https://m.media-amazon.com/images/I/61Mw4M+mHwL._UX569_.jpg"
                   />
                 </a>
                 <div className=" mt-4 text-center md:text-left">
@@ -160,7 +160,7 @@ const Tshirts = () => {
                   <img
                     alt="ecommerce"
                     className="m-auto  h-[30vh] md:h-[36vh] block"
-                    src="https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/71dFMe8x5gL._UY741_.jpg"
+                    src="https://m.media-amazon.com/images/I/61Mw4M+mHwL._UX569_.jpg"
                   />
                 </a>
                 <div className=" mt-4 text-center md:text-left">
@@ -181,7 +181,7 @@ const Tshirts = () => {
                   <img
                     alt="ecommerce"
                     className="m-auto  h-[30vh] md:h-[36vh] block"
-                    src="https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/71dFMe8x5gL._UY741_.jpg"
+                    src="https://m.media-amazon.com/images/I/61Mw4M+mHwL._UX569_.jpg"
                   />
                 </a>
                 <div className=" mt-4 text-center md:text-left">
@@ -202,7 +202,7 @@ const Tshirts = () => {
                   <img
                     alt="ecommerce"
                     className="m-auto  h-[30vh] md:h-[36vh] block"
-                    src="https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/71dFMe8x5gL._UY741_.jpg"
+                    src="https://m.media-amazon.com/images/I/61Mw4M+mHwL._UX569_.jpg"
                   />
                 </a>
                 <div className=" mt-4 text-center md:text-left">
@@ -223,7 +223,7 @@ const Tshirts = () => {
                   <img
                     alt="ecommerce"
                     className="m-auto  h-[30vh] md:h-[36vh] block"
-                    src="https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/71dFMe8x5gL._UY741_.jpg"
+                    src="https://m.media-amazon.com/images/I/61Mw4M+mHwL._UX569_.jpg"
                   />
                 </a>
                 <div className=" mt-4 text-center md:text-left">
@@ -244,7 +244,7 @@ const Tshirts = () => {
                   <img
                     alt="ecommerce"
                     className="m-auto  h-[30vh] md:h-[36vh] block"
-                    src="https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/71dFMe8x5gL._UY741_.jpg"
+                    src="https://m.media-amazon.com/images/I/61Mw4M+mHwL._UX569_.jpg"
                   />
                 </a>
                 <div className=" mt-4 text-center md:text-left">
@@ -265,7 +265,7 @@ const Tshirts = () => {
                   <img
                     alt="ecommerce"
                     className="m-auto  h-[30vh] md:h-[36vh] block"
-                    src="https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/71dFMe8x5gL._UY741_.jpg"
+                    src="https://m.media-amazon.com/images/I/61Mw4M+mHwL._UX569_.jpg"
                   />
                 </a>
                 <div className=" mt-4 text-center md:text-left">
@@ -286,7 +286,7 @@ const Tshirts = () => {
                   <img
                     alt="ecommerce"
                     className="m-auto  h-[30vh] md:h-[36vh] block"
-                    src="https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/71dFMe8x5gL._UY741_.jpg"
+                    src="https://m.media-amazon.com/images/I/61Mw4M+mHwL._UX569_.jpg"
                   />
                 </a>
                 <div className=" mt-4 text-center md:text-left">
@@ -307,7 +307,7 @@ const Tshirts = () => {
                   <img
                     alt="ecommerce"
                     className="m-auto  h-[30vh] md:h-[36vh] block"
-                    src="https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/71dFMe8x5gL._UY741_.jpg"
+                    src="https://m.media-amazon.com/images/I/61Mw4M+mHwL._UX569_.jpg"
                   />
                 </a>
                 <div className=" mt-4 text-center md:text-left">
@@ -328,7 +328,7 @@ const Tshirts = () => {
                   <img
                     alt="ecommerce"
                     className="m-auto  h-[30vh] md:h-[36vh] block"
-                    src="https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/71dFMe8x5gL._UY741_.jpg"
+                    src="https://m.media-amazon.com/images/I/61Mw4M+mHwL._UX569_.jpg"
                   />
                 </a>
                 <div className=" mt-4 text-center md:text-left">
@@ -349,7 +349,7 @@ const Tshirts = () => {
                   <img
                     alt="ecommerce"
                     className="m-auto  h-[30vh] md:h-[36vh] block"
-                    src="https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/71dFMe8x5gL._UY741_.jpg"
+                    src="https://m.media-amazon.com/images/I/61Mw4M+mHwL._UX569_.jpg"
                   />
                 </a>
                 <div className=" mt-4 text-center md:text-left">
@@ -370,7 +370,7 @@ const Tshirts = () => {
                   <img
                     alt="ecommerce"
                     className="m-auto  h-[30vh] md:h-[36vh] block"
-                    src="https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/71dFMe8x5gL._UY741_.jpg"
+                    src="https://m.media-amazon.com/images/I/61Mw4M+mHwL._UX569_.jpg"
                   />
                 </a>
                 <div className=" mt-4 text-center md:text-left">
@@ -391,7 +391,7 @@ const Tshirts = () => {
                   <img
                     alt="ecommerce"
                     className="m-auto  h-[30vh] md:h-[36vh] block"
-                    src="https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/71dFMe8x5gL._UY741_.jpg"
+                    src="https://m.media-amazon.com/images/I/61Mw4M+mHwL._UX569_.jpg"
                   />
                 </a>
                 <div className=" mt-4 text-center md:text-left">
@@ -412,7 +412,7 @@ const Tshirts = () => {
                   <img
                     alt="ecommerce"
                     className="m-auto  h-[30vh] md:h-[36vh] block"
-                    src="https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/71dFMe8x5gL._UY741_.jpg"
+                    src="https://m.media-amazon.com/images/I/61Mw4M+mHwL._UX569_.jpg"
                   />
                 </a>
                 <div className=" mt-4 text-center md:text-left">

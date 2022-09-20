@@ -62,7 +62,7 @@ const Navbar = () => {
 
       <div
         ref={ref}
-        className="w-60 h-full sideCart absolute top-0 right-0 bg-pink-100 px-8 py-10 transform transition-transform translate-x-full z-10"
+        className="w-72 h-full sideCart absolute top-0 right-0 bg-pink-100 px-8 py-10 transform transition-transform translate-x-full z-10"
       >
         <h2 className="font-bold text-xl text-center">Shopping cart</h2>
         <span
@@ -123,10 +123,16 @@ const Navbar = () => {
             </div>
           </li>
         </ol>
-        <button className="flex mx-auto mt-16 text-white bg-pink-500 border-0 py-2 px-6 focus:outline-none hover:bg-pink-600 rounded text-sm">
-          <BsFillBagCheckFill className="m-1"/>
-          Checkout
-        </button>
+        <div className="flex">
+          <button className="flex mr-2 text-white bg-pink-500 border-0 py-2 px-2 focus:outline-none hover:bg-pink-600 rounded text-sm">
+            <BsFillBagCheckFill className="m-1" />
+            Checkout
+          </button>
+          <button className="flex mr-2 text-white bg-pink-500 border-0 py-2 px-2 focus:outline-none hover:bg-pink-600 rounded text-sm">
+            Clear Cart
+          </button> 
+        </div>
+
       </div>
     </div>
   );
