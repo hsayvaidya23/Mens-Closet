@@ -11,7 +11,6 @@ import { BsFillBagCheckFill } from "react-icons/bs";
 import { MdAccountCircle } from "react-icons/md";
 
 const Navbar = ({ cart, addToCart, removeFromCart, subTotal, clearCart }) => {
-  // console.log(cart, addToCart, removeFromCart, subTotal, clearCart);
   const toggleCart = () => {
     if (ref.current.classList.contains("translate-x-full")) {
       ref.current.classList.remove("translate-x-full");
@@ -59,7 +58,9 @@ const Navbar = ({ cart, addToCart, removeFromCart, subTotal, clearCart }) => {
         className=" cursor-pointer cart absolute right-0 mx-5 top-4 flex"
       >
         <Link href={'/login'}>
-          <MdAccountCircle className="text-xl md:text-2xl mx-2" />
+          <a>
+            <MdAccountCircle className="text-xl md:text-2xl mx-2" />
+          </a>
         </Link>
         <AiOutlineShoppingCart onClick={toggleCart} className="text-xl md:text-2xl" />
       </div>
