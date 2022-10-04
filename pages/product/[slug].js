@@ -3,7 +3,7 @@ import { useState } from "react";
 import mongoose from "mongoose";
 import Product from "../../models/Product";
 
-const Post = ({ addToCart, product, variants }) => {
+const Post = ({ addToCart, buyNow, product, variants }) => {
   console.log(product, variants);
   const router = useRouter();
   const { slug } = router.query;
@@ -32,6 +32,7 @@ const Post = ({ addToCart, product, variants }) => {
     let url =`http://localhost:3000/product/${variants[newcolor][newsize]['slug']}`
     window.location = url;
   }
+  
 
   return (
     <>
@@ -196,7 +197,7 @@ const Post = ({ addToCart, product, variants }) => {
                 <span className="title-font font-medium text-2xl text-gray-900">
                   ₹499.00
                 </span>
-                <button className="flex ml-8 text-white bg-pink-500 border-0 py-2 px-2 md:px-6 focus:outline-none hover:bg-pink-600 rounded">
+                <button onClick={() => {buyNow(slug, 1, 499, product.title, size, color)}} className="flex ml-8 text-white bg-pink-500 border-0 py-2 px-2 md:px-6 focus:outline-none hover:bg-pink-600 rounded">
                   Buy Now
                 </button>
                 <button onClick={() => {addToCart(slug, 1, 499, product.title, size, color)}} className="flex ml-4 text-white bg-pink-500 border-0 py-2 px-2 md:px-6 focus:outline-none hover:bg-pink-600 rounded">
