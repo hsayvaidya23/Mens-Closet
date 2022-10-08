@@ -1,12 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useRouter } from "next/router";
 
 const Signup = () => {
+  const router = useRouter()
   const [name, setName] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+
+  useEffect(() => {
+    if(localStorage.getItem("token")){
+      router.push('/')
+    }
+  }, [])
 
   const handleChange = (e) => {
     if (e.target.name == "name") {

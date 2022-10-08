@@ -1,8 +1,15 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Link from 'next/link'
 import { TiLockClosed } from 'react-icons/ti'
+import { useRouter } from 'next/router'
 
 const forgot = () => {
+  const router = useRouter()
+  useEffect(() => {
+    if(localStorage.getItem("token")){
+      router.push('/')
+    }
+  }, [])
   return (
     <div>
       <div>
