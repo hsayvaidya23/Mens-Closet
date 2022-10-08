@@ -83,7 +83,7 @@ const Login = () => {
               Sign in to your account
             </h2>
             <p className="mt-2 text-center text-sm text-gray-600">
-              Or
+              Or{" "}
               <Link href={'/signup'}>
                 <a href="#" className="font-medium text-pink-600 hover:text-pink-500">
                   Signup
