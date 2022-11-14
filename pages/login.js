@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { toast, ToastContainer } from "react-toastify";
 import { AiFillLock } from "react-icons/ai";
-import "react-toastify/dist/ReactToastify.css";
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
   const router = useRouter();
@@ -54,9 +54,9 @@ const Login = () => {
       setTimeout(() => {
         router.push(process.env.NEXT_PUBLIC_HOST);
       }, 1000);
-    } else {
+    } else{
       toast.error(response.error, {
-        position: "top-left",
+        position: "top-bottom",
         autoClose: 5000,
         hideProgressBar: false,
         closeOnClick: true,

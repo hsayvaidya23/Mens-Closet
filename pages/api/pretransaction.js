@@ -1,9 +1,27 @@
 const https = require("https");
 const PaytmChecksum = require("paytmchecksum");
+import connectDb from '../../middleware/mongoose'
+import Order from '../../models/Order';
 // const PaytmChecksum = require("./PaytmChecksum");
 
-export default async function handler(req, res) {
+const handler = async (req, res) => {
   if (req.method == "POST") {
+    // Check if the cart is tampered with --[pending]
+
+    // Check if the cart items are out of stock --[pending]
+
+    // Check if the details are valid --[pending]
+
+      // initiate an order corresponding to this order id
+      let order = new Order({
+        email: req.body.email,
+        orderId: req.body.oid,
+        address:req.body.address,
+        amount: req.body.subTotal,
+        products: req.body.cart
+      })
+      await order.save()
+
     // Insert an entry in the Orders table with status as pending
     var paytmParams = {};
 
@@ -74,3 +92,4 @@ export default async function handler(req, res) {
     res.status(200).json(myr);
   }
 }
+export default connectDb(handler);
