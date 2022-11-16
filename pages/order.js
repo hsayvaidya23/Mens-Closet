@@ -34,7 +34,7 @@ const Order = () => {
             <div className="flex flex-col">
               <span className="title-font font-medium text-2xl text-gray-900">Subtotal: ₹1158.00</span>
               <div className='my-6'>
-                <button className="flex mx-0 text-white bg-pink-500 border-0 py-2 px-6 focus:outline-none hover:bg-pink-600 rounded">Track Order</button>
+                <button className="flex mx-0 text-white bg-violet-500 border-0 py-2 px-6 focus:outline-none hover:bg-violet-600 rounded">Track Order</button>
               </div>
             </div>
           </div>

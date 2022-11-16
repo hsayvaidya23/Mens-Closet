@@ -36,7 +36,7 @@ const Navbar = ({
       <div className="logo mr-auto md:mx-5">
         <Link href={"/"}>
           <a>
-            <Image src={"/logo.webp"} alt="" width={200} height={40} />
+            <Image src={"/logo.jpg"} alt="" width={200} height={40} objectFit='cover' />
           </a>
         </Link>
       </div>
@@ -44,22 +44,22 @@ const Navbar = ({
         <ul className="flex items-center space-x-6 font-bold md:text-md">
           <Link href={"/tshirts"}>
             <a>
-              <li className="hover:text-pink-600">Tshirts</li>
+              <li className="hover:text-violet-600">Tshirts</li>
             </a>
           </Link>
           <Link href={"/hoodies"}>
             <a>
-              <li className="hover:text-pink-600">Hoodies</li>
+              <li className="hover:text-violet-600">Hoodies</li>
             </a>
           </Link>
-          <Link href={"/stickers"}>
+          <Link href={"/suits"}>
             <a>
-              <li className="hover:text-pink-600">Stickers</li>
+              <li className="hover:text-violet-600">Suits</li>
             </a>
           </Link>
-          <Link href={"/mugs"}>
+          <Link href={"/shirts"}>
             <a>
-              <li className="hover:text-pink-600">Mugs</li>
+              <li className="hover:text-violet-600">Shirts</li>
             </a>
           </Link>
         </ul>
@@ -84,9 +84,9 @@ const Navbar = ({
               className="absolute right-8 bg-white shadow-lg border top-6 py-4 rounded-md px-5 w-32 "
             >
               <ul>
-                <Link href={'/myaccount'}><a><li className="py-1 hover:text-pink-700 text-sm font-bold">My Account</li></a></Link>
-                <Link href={'/orders'}><a><li className="py-1 hover:text-pink-700 text-sm font-bold">Orders</li></a></Link>
-                <li onClick={logout} className="py-1 hover:text-pink-700 text-sm font-bold">Logout</li>
+                <Link href={'/myaccount'}><a><li className="py-1 hover:text-violet-700 text-sm font-bold">My Account</li></a></Link>
+                <Link href={'/orders'}><a><li className="py-1 hover:text-violet-700 text-sm font-bold">Orders</li></a></Link>
+                <li onClick={logout} className="py-1 hover:text-violet-700 text-sm font-bold">Logout</li>
               </ul>
             </div>
           )}
@@ -97,7 +97,7 @@ const Navbar = ({
         {!user.value && (
           <Link href={"/login"}>
             <a>
-              <button className="bg-pink-600 px-2 py-1 rounded-md text-sm text-white mx-2">
+              <button className="bg-violet-600 px-2 py-1 rounded-md text-sm text-white mx-2">
                 Login
               </button>
             </a>
@@ -111,14 +111,14 @@ const Navbar = ({
 
       <div
         ref={ref}
-        className={`w-72 h-[100vh] sideCart overflow-y-scroll absolute top-0 right-0 bg-pink-100 px-8 py-10 transform transition-transform z-10 ${
+        className={`w-72 h-[100vh] sideCart overflow-y-scroll absolute top-0 right-0 bg-violet-100 px-8 py-10 transform transition-transform z-10 ${
           Object.keys(cart).length !== 0 ? `translate-x-0` : `translate-x-full`
         }`}
       >
         <h2 className="font-bold text-xl text-center">Shopping cart</h2>
         <span
           onClick={toggleCart}
-          className="absolute top-5 right-2 cursor-pointer text-2xl text-pink-500"
+          className="absolute top-5 right-2 cursor-pointer text-2xl text-violet-500"
         >
           <AiFillCloseCircle />
         </span>
@@ -145,7 +145,7 @@ const Navbar = ({
                           cart[k].variant
                         );
                       }}
-                      className="cursor-pointer text-pink-500"
+                      className="cursor-pointer text-violet-500"
                     />
                     <span className="mx-2 text-sm">{cart[k].qty}</span>
                     <AiFillPlusCircle
@@ -159,7 +159,7 @@ const Navbar = ({
                           cart[k].variant
                         );
                       }}
-                      className="cursor-pointer text-pink-500"
+                      className="cursor-pointer text-violet-500"
                     />
                   </div>
                 </div>
@@ -170,14 +170,14 @@ const Navbar = ({
         <div className="font-bold my-2">Subtotal: ₹{subTotal} </div>
         <div className="flex">
           <Link href={"/checkout"}>
-            <button className="flex mr-2 text-white bg-pink-500 border-0 py-2 px-2 focus:outline-none hover:bg-pink-600 rounded text-sm">
+            <button className="flex mr-2 text-white bg-violet-500 border-0 py-2 px-2 focus:outline-none hover:bg-violet-600 rounded text-sm">
               <BsFillBagCheckFill className="m-1" />
               Checkout
             </button>
           </Link>
           <button
             onClick={clearCart}
-            className="flex mr-2 text-white bg-pink-500 border-0 py-2 px-2 focus:outline-none hover:bg-pink-600 rounded text-sm"
+            className="flex mr-2 text-white bg-violet-500 border-0 py-2 px-2 focus:outline-none hover:bg-violet-600 rounded text-sm"
           >
             Clear Cart
           </button>

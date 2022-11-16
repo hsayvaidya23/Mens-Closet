@@ -10,15 +10,12 @@ const Footer = () => {
           <div className="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
             <Link href={"/"}>
               <a className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
-                <Image src="/logo.webp" alt="" width={200} height={40} />
+                <Image src="/logo.jpg" alt="" width={200} height={40} objectFit='cover' />
               </a>
             </Link>
 
-            <p className="mt-2 text-sm text-gray-500 px-4">
-              Wear the &lt;code/&gt;
-            </p>
-            <p className=" text-sm text-gray-500 px-4">
-              Premium coding tshirts, hoodies and apparals
+            <p className=" text-sm text-center text-gray-500 px-4">
+              Premium  Suits, Shirts, Tshirts, Hoodies and apparals
             </p>
           </div>
           <div className="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
@@ -38,42 +35,42 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link href={"/stickers"}>
+                  <Link href={"/suits"}>
                     <a className="text-gray-600 hover:text-gray-800">
-                      Stickers
+                      Suits
                     </a>
                   </Link>
                 </li>
                 <li>
-                  <Link href={"/mugs"}>
-                    <a className="text-gray-600 hover:text-gray-800">Mugs</a>
+                  <Link href={"/shirts"}>
+                    <a className="text-gray-600 hover:text-gray-800">Shirts</a>
                   </Link>
                 </li>
               </nav>
             </div>
             <div className="lg:w-1/4 md:w-1/2 w-full px-4">
               <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">
-                CATEGORIES
+                HELP
               </h2>
               <nav className="list-none mb-10">
                 <li>
                   <a className="text-gray-600 hover:text-gray-800">
-                    First Link
+                    Payments
                   </a>
                 </li>
                 <li>
                   <a className="text-gray-600 hover:text-gray-800">
-                    Second Link
+                    Shipping
                   </a>
                 </li>
                 <li>
                   <a className="text-gray-600 hover:text-gray-800">
-                    Third Link
+                    Cancellation & Returns
                   </a>
                 </li>
                 <li>
                   <a className="text-gray-600 hover:text-gray-800">
-                    Fourth Link
+                    Report
                   </a>
                 </li>
               </nav>
@@ -85,22 +82,22 @@ const Footer = () => {
               <nav className="list-none mb-10">
                 <li>
                   <a className="text-gray-600 hover:text-gray-800">
-                    First Link
+                    Return Policy
                   </a>
                 </li>
                 <li>
                   <a className="text-gray-600 hover:text-gray-800">
-                    Second Link
+                    Terms of Use
                   </a>
                 </li>
                 <li>
                   <a className="text-gray-600 hover:text-gray-800">
-                    Third Link
+                    Security
                   </a>
                 </li>
                 <li>
                   <a className="text-gray-600 hover:text-gray-800">
-                    Fourth Link
+                    Privacy
                   </a>
                 </li>
               </nav>
@@ -112,22 +109,22 @@ const Footer = () => {
               <nav className="list-none mb-10">
                 <li>
                   <a className="text-gray-600 hover:text-gray-800">
-                    First Link
+                    Contact Us
                   </a>
                 </li>
                 <li>
                   <a className="text-gray-600 hover:text-gray-800">
-                    Second Link
+                    About Us
                   </a>
                 </li>
                 <li>
                   <a className="text-gray-600 hover:text-gray-800">
-                    Third Link
+                    Careers
                   </a>
                 </li>
                 <li>
                   <a className="text-gray-600 hover:text-gray-800">
-                    Fourth Link
+                    Wholesale
                   </a>
                 </li>
               </nav>
@@ -137,7 +134,7 @@ const Footer = () => {
         <div className="bg-gray-100">
           <div className="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
             <p className="text-gray-500 text-sm text-center sm:text-left">
-              © 2022 Codeswear.com — All Rights Reserved
+              © 2022 Menscloset.com — All Rights Reserved
             </p>
             <span className="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
               <a className="text-gray-500">
