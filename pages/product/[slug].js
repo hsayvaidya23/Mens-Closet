@@ -328,7 +328,7 @@ const Post = ({ addToCart, buyNow, product, variants }) => {
                   onClick={() => {
                     buyNow(slug, 1, product.price, product.title, size, color);
                   }}
-                  className="flex ml-8 text-white bg-pink-500 border-0 py-2 px-2 md:px-6 focus:outline-none hover:bg-pink-600 rounded"
+                  className="flex ml-8 text-white bg-violet-500 border-0 py-2 px-2 md:px-6 focus:outline-none hover:bg-violet-600 rounded"
                 >
                   Buy Now
                 </button>
@@ -336,7 +336,7 @@ const Post = ({ addToCart, buyNow, product, variants }) => {
                   onClick={() => {
                     addToCart(slug, 1, product.price, product.title, size, color);
                   }}
-                  className="flex ml-4 text-white bg-pink-500 border-0 py-2 px-2 md:px-6 focus:outline-none hover:bg-pink-600 rounded"
+                  className="flex ml-4 text-white bg-violet-500 border-0 py-2 px-2 md:px-6 focus:outline-none hover:bg-violet-600 rounded"
                 >
                   Add to Cart
                 </button>
@@ -362,7 +362,7 @@ const Post = ({ addToCart, buyNow, product, variants }) => {
                 />
                 <button
                   onClick={checkServiceability}
-                  className="text-white bg-pink-500 border-0 py-2 px-6 focus:outline-none hover:bg-pink-600 rounded"
+                  className="text-white bg-violet-500 border-0 py-2 px-6 focus:outline-none hover:bg-violet-600 rounded"
                 >
                   Check
                 </button>

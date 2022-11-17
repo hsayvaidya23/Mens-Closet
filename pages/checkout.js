@@ -106,7 +106,7 @@ const Checkout = ({ cart, subTotal, addToCart, removeFromCart }) => {
               value={name}
               id="name"
               name="name"
-              className="w-full bg-white rounded border border-gray-300 focus:border-pink-500 focus:ring-2 focus:ring-pink-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+              className="w-full bg-white rounded border border-gray-300 focus:border-violet-500 focus:ring-2 focus:ring-violet-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
             />
           </div>
         </div>
@@ -121,7 +121,7 @@ const Checkout = ({ cart, subTotal, addToCart, removeFromCart }) => {
               value={email}
               id="email"
               name="email"
-              className="w-full bg-white rounded border border-gray-300 focus:border-pink-500 focus:ring-2 focus:ring-pink-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+              className="w-full bg-white rounded border border-gray-300 focus:border-violet-500 focus:ring-2 focus:ring-violet-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
             />
           </div>
         </div>
@@ -139,7 +139,7 @@ const Checkout = ({ cart, subTotal, addToCart, removeFromCart }) => {
             defaultValue="address"
             cols="30"
             rows="2"
-            className="w-full bg-white rounded border border-gray-300 focus:border-pink-500 focus:ring-2 focus:ring-pink-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+            className="w-full bg-white rounded border border-gray-300 focus:border-violet-500 focus:ring-2 focus:ring-violet-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
           ></textarea>
         </div>
       </div>
@@ -155,7 +155,7 @@ const Checkout = ({ cart, subTotal, addToCart, removeFromCart }) => {
               value={phone}
               id="phone"
               name="phone"
-              className="w-full bg-white rounded border border-gray-300 focus:border-pink-500 focus:ring-2 focus:ring-pink-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+              className="w-full bg-white rounded border border-gray-300 focus:border-violet-500 focus:ring-2 focus:ring-violet-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
             />
           </div>
         </div>
@@ -170,7 +170,7 @@ const Checkout = ({ cart, subTotal, addToCart, removeFromCart }) => {
               value={pincode}
               id="pincode"
               name="pincode"
-              className="w-full bg-white rounded border border-gray-300 focus:border-pink-500 focus:ring-2 focus:ring-pink-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+              className="w-full bg-white rounded border border-gray-300 focus:border-violet-500 focus:ring-2 focus:ring-violet-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
             />
           </div>
         </div>
@@ -188,7 +188,7 @@ const Checkout = ({ cart, subTotal, addToCart, removeFromCart }) => {
               name="state"
               value={state}
               readOnly={true}
-              className="w-full bg-white rounded border border-gray-300 focus:border-pink-500 focus:ring-2 focus:ring-pink-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+              className="w-full bg-white rounded border border-gray-300 focus:border-violet-500 focus:ring-2 focus:ring-violet-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
             />
           </div>
         </div>
@@ -203,14 +203,14 @@ const Checkout = ({ cart, subTotal, addToCart, removeFromCart }) => {
               name="city"
               value={city}
               readOnly={true}
-              className="w-full bg-white rounded border border-gray-300 focus:border-pink-500 focus:ring-2 focus:ring-pink-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+              className="w-full bg-white rounded border border-gray-300 focus:border-violet-500 focus:ring-2 focus:ring-violet-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
             />
           </div>
         </div>
       </div>
 
       <h2 className="font-semibold text-xl">2. Review Cart Items & Pay</h2>
-      <div className="sideCart bg-pink-100 p-6 my-4">
+      <div className="sideCart bg-violet-100 p-6 my-4">
         <ol className="list-decimal font-semibold">
           {Object.keys(cart).length == 0 && (
             <div className=" my-4 font-semibold">Your cart is Empty!</div>
@@ -234,7 +234,7 @@ const Checkout = ({ cart, subTotal, addToCart, removeFromCart }) => {
                           cart[k].variant
                         );
                       }}
-                      className="cursor-pointer text-pink-500"
+                      className="cursor-pointer text-violet-500"
                     />
                     <span className="mx-2 text-sm">{cart[k].qty}</span>
                     <AiFillPlusCircle
@@ -248,7 +248,7 @@ const Checkout = ({ cart, subTotal, addToCart, removeFromCart }) => {
                           cart[k].variant
                         );
                       }}
-                      className="cursor-pointer text-pink-500"
+                      className="cursor-pointer text-violet-500"
                     />
                   </div>
                 </div>
@@ -263,7 +263,7 @@ const Checkout = ({ cart, subTotal, addToCart, removeFromCart }) => {
           <button
             disabled={disabled}
             onClick={initiatePayment}
-            className=" disabled:bg-pink-300 flex mr-2 text-white bg-pink-500 border-0 py-2 px-2 focus:outline-none hover:bg-pink-600 rounded text-sm"
+            className=" disabled:bg-violet-300 flex mr-2 text-white bg-violet-500 border-0 py-2 px-2 focus:outline-none hover:bg-violet-600 rounded text-sm"
           >
             <BsFillBagCheckFill className="m-1" />
             Pay ₹ {subTotal}
