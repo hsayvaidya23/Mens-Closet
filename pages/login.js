@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from 'next/image'
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { toast, ToastContainer } from "react-toastify";
@@ -82,11 +83,12 @@ const Login = () => {
       <div className="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
         <div className="w-full max-w-md space-y-8">
           <div>
-            <img
+            {/* <img
               className="mx-auto h-12 w-auto"
-              src="/codeswearcircle.png"
+              src="/logo.jpg"
               alt="Your Company"
-            />
+            /> */}
+            <Image  src='/logo.jpg' width="200" height="40" objectFit='cover' />
             <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
               Sign in to your account
             </h2>

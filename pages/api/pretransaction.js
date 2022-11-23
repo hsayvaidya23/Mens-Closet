@@ -1,7 +1,7 @@
 const https = require("https");
 const PaytmChecksum = require("paytmchecksum");
-import connectDb from '../../middleware/mongoose'
-import Order from '../../models/Order';
+import connectDb from "../../middleware/mongoose";
+import Order from "../../models/Order";
 // const PaytmChecksum = require("./PaytmChecksum");
 
 const handler = async (req, res) => {
@@ -12,15 +12,15 @@ const handler = async (req, res) => {
 
     // Check if the details are valid --[pending]
 
-      // initiate an order corresponding to this order id
-      let order = new Order({
-        email: req.body.email,
-        orderId: req.body.oid,
-        address:req.body.address,
-        amount: req.body.subTotal,
-        products: req.body.cart
-      })
-      await order.save()
+    // initiate an order corresponding to this order id
+    let order = new Order({
+      email: req.body.email,
+      orderId: req.body.oid,
+      address: req.body.address,
+      amount: req.body.subTotal,
+      products: req.body.cart,
+    });
+    await order.save();
 
     // Insert an entry in the Orders table with status as pending
     var paytmParams = {};
@@ -50,12 +50,12 @@ const handler = async (req, res) => {
     );
 
     paytmParams.head = {
-      "signature": checksum
+      signature: checksum,
     };
 
     var post_data = JSON.stringify(paytmParams);
 
-    const requestAsync = async() => {
+    const requestAsync = async () => {
       return new Promise((resolve, reject) => {
         var options = {
           /* for Staging */
@@ -91,5 +91,5 @@ const handler = async (req, res) => {
     let myr = await requestAsync();
     res.status(200).json(myr);
   }
-}
+};
 export default connectDb(handler);
