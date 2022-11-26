@@ -4,45 +4,71 @@ import { AiFillPlusCircle, AiFillMinusCircle } from "react-icons/ai";
 import { BsFillBagCheckFill } from "react-icons/bs";
 import Head from "next/head";
 import Script from "next/script";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Checkout = ({ cart, subTotal, addToCart, removeFromCart }) => {
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [phone, setPhone] = useState('')
-  const [address, setAddress] = useState('')  
-  const [pincode, setPincode] = useState('')
-  const [state, setState] = useState('')
-  const [city, setCity] = useState('')
-  const [disabled, setDisabled] = useState(true)
-  const handleChange = (e) => {
-    if(e.target.name == 'name'){
-      setName(e.target.value)
-    }
-    else if(e.target.name == 'email'){
-      setEmail(e.target.value)
-    }
-    else if(e.target.name == 'phone'){
-      setPhone(e.target.value)
-    }
-    else if(e.target.name == 'address'){
-      setAddress(e.target.value)
-    }
-    else if(e.target.name == 'pincode'){
-      setPincode(e.target.value)
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [address, setAddress] = useState("");
+  const [pincode, setPincode] = useState("");
+  const [state, setState] = useState("");
+  const [city, setCity] = useState("");
+  const [disabled, setDisabled] = useState(true);
+  const handleChange = async (e) => {
+    if (e.target.name == "name") {
+      setName(e.target.value);
+    } else if (e.target.name == "email") {
+      setEmail(e.target.value);
+    } else if (e.target.name == "phone") {
+      setPhone(e.target.value);
+    } else if (e.target.name == "address") {
+      setAddress(e.target.value);
+    } else if (e.target.name == "pincode") {
+      setPincode(e.target.value);
+      if (e.target.value.length == 6) {
+        let pins = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/pincode`);
+        let pinJson = await pins.json();
+        if (Object.keys(pinJson).includes(e.target.value)) {
+          setState(pinJson[e.target.value][1]);
+          setCity(pinJson[e.target.value][0]);
+        } else {
+          setState("");
+          setCity("");
+        }
+      } else {
+        setState("");
+        setCity("");
+      }
     }
     setTimeout(() => {
-      if(name.length>3 && email.length>3 && phone.length>3 && address.length>3 && pincode.length>3 ){
-        setDisabled(false)
-      }
-      else {
-        setDisabled(true) 
+      if (
+        name.length > 3 &&
+        email.length > 3 &&
+        phone.length > 3 &&
+        address.length > 3 &&
+        pincode.length > 3
+      ) {
+        setDisabled(false);
+      } else {
+        setDisabled(true);
       }
     }, 100);
-  }
+  };
   const initiatePayment = async () => {
-    let oid = Math.floor(Math.random() * Date.now())
+    let oid = Math.floor(Math.random() * Date.now());
     // Get a transaction token
-    const data = { cart, subTotal, oid, email:email, name, address, pincode, phone };
+    const data = {
+      cart,
+      subTotal,
+      oid,
+      email: email,
+      name,
+      address,
+      pincode,
+      phone,
+    };
 
     let a = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/pretransaction`, {
       method: "POST", // or 'PUT'
@@ -52,35 +78,61 @@ const Checkout = ({ cart, subTotal, addToCart, removeFromCart }) => {
       body: JSON.stringify(data),
     });
     let txnRes = await a.json();
-    let txnToken = txnRes.txnToken;
-    var config = {
-      root: "",
-      flow: "DEFAULT",
-      data: {
-        orderId: oid /* update order id */,
-        token: txnToken /* update token value */,
-        tokenType: "TXN_TOKEN",
-        amount: subTotal /* update amount */,
-      },
-      handler: {
-        notifyMerchant: function (eventName, data) {
-          console.log("notifyMerchant handler function called");
-          console.log("eventName => ", eventName);
-          console.log("data => ", data);
+    if (txnRes.success) {
+      let txnToken = txnRes.txnToken;
+      var config = {
+        root: "",
+        flow: "DEFAULT",
+        data: {
+          orderId: oid /* update order id */,
+          token: txnToken /* update token value */,
+          tokenType: "TXN_TOKEN",
+          amount: subTotal /* update amount */,
         },
-      },
-    };
-    window.Paytm.CheckoutJS.init(config)
-      .then(function onSuccess() {
-        // after successfully updating configuration, invoke JS Checkout
-        window.Paytm.CheckoutJS.invoke();
-      }) 
-      .catch(function onError(error) {
-        console.log("error => ", error);
-      });
+        handler: {
+          notifyMerchant: function (eventName, data) {
+            console.log("notifyMerchant handler function called");
+            console.log("eventName => ", eventName);
+            console.log("data => ", data);
+          },
+        },
+      };
+      window.Paytm.CheckoutJS.init(config)
+        .then(function onSuccess() {
+          // after successfully updating configuration, invoke JS Checkout
+          window.Paytm.CheckoutJS.invoke();
+        })
+        .catch(function onError(error) {
+          console.log("error => ", error);
+        });
+    } else {
+      console.log(txnRes.error);
+      toast.error(txnRes.error , {
+        position: "top-left",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        });
+    }
   };
   return (
     <div className="container px-2 sm:m-auto">
+      <ToastContainer
+        position="top-left"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
       <Head>
         <meta
           name="viewport"
@@ -136,7 +188,7 @@ const Checkout = ({ cart, subTotal, addToCart, removeFromCart }) => {
             value={address}
             name="address"
             id="address"
-            defaultValue="address"
+            // defaultValue="address"
             cols="30"
             rows="2"
             className="w-full bg-white rounded border border-gray-300 focus:border-violet-500 focus:ring-2 focus:ring-violet-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
@@ -174,7 +226,6 @@ const Checkout = ({ cart, subTotal, addToCart, removeFromCart }) => {
             />
           </div>
         </div>
-        
       </div>
       <div className="mx-auto flex my-2">
         <div className="px-2 w-1/2">
@@ -184,10 +235,10 @@ const Checkout = ({ cart, subTotal, addToCart, removeFromCart }) => {
             </label>
             <input
               type="text"
+              onChange={handleChange}
               id="state"
               name="state"
               value={state}
-              readOnly={true}
               className="w-full bg-white rounded border border-gray-300 focus:border-violet-500 focus:ring-2 focus:ring-violet-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
             />
           </div>
@@ -199,10 +250,10 @@ const Checkout = ({ cart, subTotal, addToCart, removeFromCart }) => {
             </label>
             <input
               type="text"
+              onChange={handleChange}
               id="city"
               name="city"
               value={city}
-              readOnly={true}
               className="w-full bg-white rounded border border-gray-300 focus:border-violet-500 focus:ring-2 focus:ring-violet-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
             />
           </div>
