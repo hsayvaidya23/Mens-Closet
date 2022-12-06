@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import mongoose from "mongoose";
 import Product from "../../models/Product";
 import { ToastContainer, toast } from "react-toastify";
@@ -11,7 +11,12 @@ const Post = ({ addToCart, buyNow, product, variants }) => {
   const { slug } = router.query;
   const [pin, setPin] = useState();
   const [service, setService] = useState();
-
+  const [color, setColor] = useState(product.color);
+  const [size, setSize] = useState(product.size);
+  useEffect(() => {
+    setColor(product.color)
+    setSize(product.size)
+  },[router.query])
   const checkServiceability = async () => {
     let pins = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/pincode`);
     let pinJson = await pins.json();
@@ -39,17 +44,16 @@ const Post = ({ addToCart, buyNow, product, variants }) => {
         });
     }
   };
-
+ 
   const onChangePin = (e) => {
     setPin(e.target.value);
   };
 
-  const [color, setColor] = useState(product.color);
-  const [size, setSize] = useState(product.size);
+ 
 
   const refreshVariant = (newsize, newcolor) => {
     let url = `${process.env.NEXT_PUBLIC_HOST}/product/${variants[newcolor][newsize]["slug"]}`;
-    window.location = url;
+    router.push(url)
   };
 
   return (
@@ -75,7 +79,7 @@ const Post = ({ addToCart, buyNow, product, variants }) => {
             />
             <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
               <h2 className="text-sm title-font text-gray-500 tracking-widest">
-                CODESWEAR
+                MENSCLOSET
               </h2>
               <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">
                 {product.title} ({product.size}/{product.color})
