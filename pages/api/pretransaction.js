@@ -6,14 +6,17 @@ import Product from "../../models/Product";
 
 const handler = async (req, res) => {
   if (req.method == "POST") {
-    // Check if the cart is tampered with --[pending]
+    // Check if the cart is tampered with 
     let product, sumTotal = 0;
     let cart = req.body.cart;
-    for(let item in cart){
-      console.log(item)
+    if(req.body.subTotal <= 0) {
+      res.status(200).json({success: false,'error':"Cart Empty! Please build your cart and try again! "})
+      return 
+    }
+    for(let item in cart){ 
       sumTotal  += cart[item].price * cart[item].qty;
       product = await Product.findOne({ slug: item})
-      // Check if the cart items are out of stock --[pending]
+      // Check if the cart items are out of stock 
       if(product.availableQty < cart[item].qty) {
         res.status(200).json({success: false,'error':"Some items in your cart went out of stock. Please try again! "})
       }
@@ -30,6 +33,14 @@ const handler = async (req, res) => {
 
 
     // Check if the details are valid --[pending]
+    if(req.body.phone.length !== 10 || !Number.isInteger(req.body.phone)){
+      res.status(200).json({ success: false, "error":"Please enter your 10 digit phone number"})
+      return
+    }
+    if(req.body.pincode.length !== 6 || !Number.isInteger(req.body.pincode)){
+      res.status(200).json({ success: false, "error":"Please enter your 6 digit Pincode "})
+      return 
+    }
 
     // initiate an order corresponding to this order id
     let order = new Order({

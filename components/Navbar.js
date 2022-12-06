@@ -36,7 +36,13 @@ const Navbar = ({
       <div className="logo mr-auto md:mx-5">
         <Link href={"/"}>
           <a>
-            <Image src={"/logo.jpg"} alt="" width={200} height={40} objectFit='cover' />
+            <Image
+              src={"/logo.jpg"}
+              alt=""
+              width={200}
+              height={40}
+              objectFit="cover"
+            />
           </a>
         </Link>
       </div>
@@ -84,9 +90,26 @@ const Navbar = ({
               className="absolute right-8 bg-white shadow-lg border top-6 py-4 rounded-md px-5 w-32 "
             >
               <ul>
-                <Link href={'/myaccount'}><a><li className="py-1 hover:text-violet-700 text-sm font-bold">My Account</li></a></Link>
-                <Link href={'/orders'}><a><li className="py-1 hover:text-violet-700 text-sm font-bold">Orders</li></a></Link>
-                <li onClick={logout} className="py-1 hover:text-violet-700 text-sm font-bold">Logout</li>
+                <Link href={"/myaccount"}>
+                  <a>
+                    <li className="py-1 hover:text-violet-700 text-sm font-bold">
+                      My Account
+                    </li>
+                  </a>
+                </Link>
+                <Link href={"/orders"}>
+                  <a>
+                    <li className="py-1 hover:text-violet-700 text-sm font-bold">
+                      Orders
+                    </li>
+                  </a>
+                </Link>
+                <li
+                  onClick={logout}
+                  className="py-1 hover:text-violet-700 text-sm font-bold"
+                >
+                  Logout
+                </li>
               </ul>
             </div>
           )}
@@ -170,14 +193,18 @@ const Navbar = ({
         <div className="font-bold my-2">Subtotal: ₹{subTotal} </div>
         <div className="flex">
           <Link href={"/checkout"}>
-            <button className="flex mr-2 text-white bg-violet-500 border-0 py-2 px-2 focus:outline-none hover:bg-violet-600 rounded text-sm">
+            <button
+              disabled={Object.keys(cart).length === 0}
+              className=" disabled:bg-purple-300 flex mr-2 text-white bg-violet-500 border-0 py-2 px-2 focus:outline-none hover:bg-violet-600 rounded text-sm"
+            >
               <BsFillBagCheckFill className="m-1" />
               Checkout
             </button>
           </Link>
           <button
+            disabled={Object.keys(cart).length === 0}
             onClick={clearCart}
-            className="flex mr-2 text-white bg-violet-500 border-0 py-2 px-2 focus:outline-none hover:bg-violet-600 rounded text-sm"
+            className="disabled:bg-purple-300 flex mr-2 text-white bg-violet-500 border-0 py-2 px-2 focus:outline-none hover:bg-violet-600 rounded text-sm"
           >
             Clear Cart
           </button>
