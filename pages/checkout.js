@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { AiFillPlusCircle, AiFillMinusCircle } from "react-icons/ai";
 import { BsFillBagCheckFill } from "react-icons/bs";
@@ -7,7 +7,8 @@ import Script from "next/script";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const Checkout = ({ cart, subTotal, addToCart, removeFromCart }) => {
+
+const Checkout = ({ cart, clearCart, subTotal, addToCart, removeFromCart }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -16,8 +17,21 @@ const Checkout = ({ cart, subTotal, addToCart, removeFromCart }) => {
   const [state, setState] = useState("");
   const [city, setCity] = useState("");
   const [disabled, setDisabled] = useState(true);
+  const [user, setUser] = useState({value: null})
+
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("myuser"));
+    
+   if(user.token){
+    setUser(user)
+    setEmail(user.email)
+   }
+  }, [])
+  
+
   const handleChange = async (e) => {
-    if (e.target.name == "name") {
+    console.log(user, email)
+    if (e.target.name == "name") { 
       setName(e.target.value);
     } else if (e.target.name == "email") {
       setEmail(e.target.value);
@@ -107,7 +121,8 @@ const Checkout = ({ cart, subTotal, addToCart, removeFromCart }) => {
         });
     } else {
       console.log(txnRes.error);
-      toast.error(txnRes.error , {
+      clearCart();
+      toast.error(txnRes.error, {
         position: "top-left",
         autoClose: 5000,
         hideProgressBar: false,
@@ -116,7 +131,7 @@ const Checkout = ({ cart, subTotal, addToCart, removeFromCart }) => {
         draggable: true,
         progress: undefined,
         theme: "light",
-        });
+      });
     }
   };
   return (
@@ -167,14 +182,26 @@ const Checkout = ({ cart, subTotal, addToCart, removeFromCart }) => {
             <label htmlFor="email" className="leading-7 text-sm text-gray-600">
               Email
             </label>
-            <input
-              type="email"
-              onChange={handleChange}
-              value={email}
-              id="email"
-              name="email"
-              className="w-full bg-white rounded border border-gray-300 focus:border-violet-500 focus:ring-2 focus:ring-violet-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-            />
+            {user && user.value ? (
+              <input
+                type="email"
+                onChange={handleChange}
+                value={user.email}
+                id="email"
+                name="email"
+                className="w-full bg-white rounded border border-gray-300 focus:border-violet-500 focus:ring-2 focus:ring-violet-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                readOnly={true}
+              />
+            ) : ( 
+              <input
+                type="email"
+                onChange={handleChange}
+                value={email}
+                id="email"
+                name="email"
+                className="w-full bg-white rounded border border-gray-300 focus:border-violet-500 focus:ring-2 focus:ring-violet-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+              />
+            )}
           </div>
         </div>
       </div>
