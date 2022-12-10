@@ -3,12 +3,15 @@ import { useRouter } from 'next/router';
 import Order from '../models/Order';
 import mongoose from 'mongoose'
 import Image from 'next/image';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 const MyOrder = ({order, clearCart}) => {
   const products = order.products;
   const router = useRouter()
+  const [date, setDate] = useState()
   useEffect(() => {
+    const d = new Date(order.createdAt)
+    setDate(d)
     if(router.query.clearCart == 1){
       clearCart()
     }
@@ -24,6 +27,7 @@ const MyOrder = ({order, clearCart}) => {
             <h2 className="text-sm title-font text-gray-500 tracking-widest">MENSCLOSET.COM</h2>
             <h1 className="text-gray-900 text-xl  md:text-3xl title-font font-medium mb-4">Order Id: #{order.orderId}</h1>
             <p className="leading-relaxed mb-4">Yayy! Your order has been successfully placed! </p>
+            <p className="leading-relaxed mb-4">Order placed on: { date && date.toLocaleDateString("en-IN",{ weekday:'long', year:'numeric', month:'long', day:'numeric'})} </p>
             <p className="leading-relaxed mb-4">Your Payment Status is: <span className='font-semibold text-slate-700'>{order.status}</span>! </p>
             <div className="flex mb-4">
               <a className="flex-grow  text-center py-2 text-lg px-1">Item Description</a>
@@ -33,7 +37,7 @@ const MyOrder = ({order, clearCart}) => {
 
 
 
-            {Object.keys(products).map((key)=>{
+            {Object.keys(products).map(( key)=>{
               return <div key={key} className="flex border-t border-gray-200 py-2">
               <span className=" container w-110 text-gray-500 text-start ">{products[key].name}({products[key].size}/{products[key].variant})</span>
               <span className="m-auto container w-90   text-center  text-gray-900">{products[key].qty}</span>

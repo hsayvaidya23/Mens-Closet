@@ -27,6 +27,21 @@ const Checkout = ({ cart, clearCart, subTotal, addToCart, removeFromCart }) => {
     setEmail(user.email)
    }
   }, [])
+
+  useEffect(() => {
+    if (
+      name.length > 3 &&
+      email.length > 3 &&
+      phone.length > 3 &&
+      address.length > 3 &&
+      pincode.length > 3
+    ) {
+      setDisabled(false);
+    } else {
+      setDisabled(true);
+    }
+  }, [name, email, phone, address, pincode])
+  
   
 
   const handleChange = async (e) => {
@@ -56,19 +71,6 @@ const Checkout = ({ cart, clearCart, subTotal, addToCart, removeFromCart }) => {
         setCity("");
       }
     }
-    setTimeout(() => {
-      if (
-        name.length > 3 &&
-        email.length > 3 &&
-        phone.length > 3 &&
-        address.length > 3 &&
-        pincode.length > 3
-      ) {
-        setDisabled(false);
-      } else {
-        setDisabled(true);
-      }
-    }, 100);
   };
   const initiatePayment = async () => {
     let oid = Math.floor(Math.random() * Date.now());
@@ -226,7 +228,7 @@ const Checkout = ({ cart, clearCart, subTotal, addToCart, removeFromCart }) => {
         <div className="px-2 w-1/2">
           <div className="mb-4">
             <label htmlFor="phone" className="leading-7 text-sm text-gray-600">
-              Phone Number
+              Phone Number 
             </label>
             <input
               type="phone"

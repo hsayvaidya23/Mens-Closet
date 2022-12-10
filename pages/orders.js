@@ -20,7 +20,7 @@ const Orders = () => {
     if (!localStorage.getItem("myuser")) {
       router.push("/");
     } else {
-      fetchOrders();
+      fetchOrders(); 
     }
   }, []);
   return (
