@@ -2,20 +2,26 @@ import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import mongoose from "mongoose";
 import Product from "../../models/Product";
+import Error from 'next/error'
+import Custom404 from "../404";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const Post = ({ addToCart, buyNow, product, variants }) => {
+const Post = ({ addToCart, buyNow, product, variants, error }) => {
   console.log(product, variants);
   const router = useRouter();
   const { slug } = router.query;
   const [pin, setPin] = useState();
   const [service, setService] = useState();
-  const [color, setColor] = useState(product.color);
-  const [size, setSize] = useState(product.size);
+  // const [color, setColor] = useState(product.color);
+  // const [size, setSize] = useState(product.size);
+  const [color, setColor] = useState();
+  const [size, setSize] = useState();
   useEffect(() => {
-    setColor(product.color)
-    setSize(product.size)
+    if(!error) {
+      setColor(product.color)
+      setSize(product.size)
+    }
   },[router.query])
   const checkServiceability = async () => {
     let pins = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/pincode`);
@@ -55,6 +61,10 @@ const Post = ({ addToCart, buyNow, product, variants }) => {
     let url = `${process.env.NEXT_PUBLIC_HOST}/product/${variants[newcolor][newsize]["slug"]}`;
     router.push(url)
   };
+
+  if(error == 404){
+    return <Custom404 statusCode={404} />
+  }
 
   return (
     <>
@@ -292,19 +302,19 @@ const Post = ({ addToCart, buyNow, product, variants }) => {
                       }}
                       className="rounded border appearance-none border-gray-300 py-2 focus:outline-none focus:ring-2 focus:ring-pink-200 focus:border-pink-500 text-base pl-3 pr-10"
                     >
-                      {Object.keys(variants[color]).includes("S") && (
+                      {color && Object.keys(variants[color]).includes("S") && (
                         <option value={"S"}>S</option>
                       )}
-                      {Object.keys(variants[color]).includes("M") && (
+                      {color && Object.keys(variants[color]).includes("M") && (
                         <option value={"M"}>M</option>
                       )}
-                      {Object.keys(variants[color]).includes("L") && (
+                      {color && Object.keys(variants[color]).includes("L") && (
                         <option value={"L"}>L</option>
                       )}
-                      {Object.keys(variants[color]).includes("XL") && (
+                      {color && Object.keys(variants[color]).includes("XL") && (
                         <option value={"XL"}>XL</option>
                       )}
-                      {Object.keys(variants[color]).includes("XXL") && (
+                      {color && Object.keys(variants[color]).includes("XXL") && (
                         <option value={"XXL"}>XXL</option>
                       )}
                     </select>
@@ -325,22 +335,27 @@ const Post = ({ addToCart, buyNow, product, variants }) => {
                 </div>
               </div>
               <div className="flex">
-                <span className="title-font font-medium text-2xl text-gray-900">
+                {product.availableQty>0 && <span className="title-font font-medium text-2xl text-gray-900">
                   ₹{product.price}.00
-                </span>
+                </span>}
+                {product.availableQty <=0 && <span className="title-font font-medium text-2xl text-gray-900">
+                  Out of Stock!
+                </span>}
                 <button
+                  disabled={product.availableQty <=0}                  
                   onClick={() => {
                     buyNow(slug, 1, product.price, product.title, size, color);
                   }}
-                  className="flex ml-8 text-white bg-violet-500 border-0 py-2 px-2 md:px-6 focus:outline-none hover:bg-violet-600 rounded"
+                  className="flex ml-8 text-white bg-violet-500 disabled:bg-violet-300 border-0 py-2 px-2 md:px-6 focus:outline-none hover:bg-violet-600 rounded"
                 >
                   Buy Now
                 </button>
                 <button
+                  disabled={product.availableQty <=0}
                   onClick={() => {
                     addToCart(slug, 1, product.price, product.title, size, color);
                   }}
-                  className="flex ml-4 text-white bg-violet-500 border-0 py-2 px-2 md:px-6 focus:outline-none hover:bg-violet-600 rounded"
+                  className="flex ml-4 text-white bg-violet-500 disabled:bg-violet-300 border-0 py-2 px-2 md:px-6 focus:outline-none hover:bg-violet-600 rounded"
                 >
                   Add to Cart
                 </button>
@@ -390,10 +405,18 @@ const Post = ({ addToCart, buyNow, product, variants }) => {
 };
 
 export async function getServerSideProps(context) {
+  let error = null;
   if (!mongoose.connections[0].readyState) {
     await mongoose.connect(process.env.MONGO_URI);
   }
   let product = await Product.findOne({ slug: context.query.slug });
+  if(product == null ){
+    return {
+      props: {
+        error: 404
+      }, // will be passed to the page component as props
+    };
+  }
   let variants = await Product.find({ title: product.title, category: product.category });
   let colorSizeSlug = {}; // {red: {xl: {slug: 'wear-the-code-xl'}}}
   for (let item of variants) {
@@ -407,6 +430,7 @@ export async function getServerSideProps(context) {
 
   return {
     props: {
+      error: error,
       product: JSON.parse(JSON.stringify(product)),
       variants: JSON.parse(JSON.stringify(colorSizeSlug)),
     }, // will be passed to the page component as props
