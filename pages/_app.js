@@ -19,7 +19,6 @@ function MyApp({ Component, pageProps }) {
     router.events.on('routeChangeComplete', () => {
       setProgress(100)
     })
-    console.log("Hey I am a useEffect from _app.js");
 
     try {
       if (localStorage.getItem("cart")) {
@@ -73,7 +72,6 @@ function MyApp({ Component, pageProps }) {
     newCart[itemCode]= { qty: 1, price, name, size, variant };
     setCart(newCart);
     saveCart(newCart);
-    console.log(newCart);
     router.push("/checkout");
   };
 

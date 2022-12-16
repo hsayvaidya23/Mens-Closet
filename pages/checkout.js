@@ -7,7 +7,6 @@ import Script from "next/script";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-
 const Checkout = ({ cart, clearCart, subTotal, addToCart, removeFromCart }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -17,16 +16,17 @@ const Checkout = ({ cart, clearCart, subTotal, addToCart, removeFromCart }) => {
   const [state, setState] = useState("");
   const [city, setCity] = useState("");
   const [disabled, setDisabled] = useState(true);
-  const [user, setUser] = useState({value: null})
+  const [user, setUser] = useState({ value: null });
 
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem("myuser"));
-    
-   if(user && user.token){
-    setUser(user)
-    setEmail(user.email)
-   }
-  }, [])
+    const myuser = JSON.parse(localStorage.getItem("myuser"));
+
+    if (myuser && myuser.token) {
+      setUser(myuser);
+      setEmail(myuser.email);
+      fetchData(myuser.token)
+    }
+  }, []);
 
   useEffect(() => {
     if (
@@ -40,13 +40,40 @@ const Checkout = ({ cart, clearCart, subTotal, addToCart, removeFromCart }) => {
     } else {
       setDisabled(true);
     }
-  }, [name, email, phone, address, pincode])
-  
-  
+  }, [name, email, phone, address, pincode]);
+
+  const fetchData = async (token) => {
+    let data = { token: token };
+    let a = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/getuser`, {
+      method: "POST", // or 'PUT'
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    let res = await a.json();
+    setName(res.name);
+    setAddress(res.address);
+    setPincode(res.pincode);
+    setPhone(res.phone);
+    getPinCode(res.pincode)
+  };
+
+  const getPinCode = async(pin) => {
+    let pins = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/pincode`);
+    let pinJson = await pins.json();
+    if (Object.keys(pinJson).includes(pin)) {
+      setState(pinJson[pin][1]);
+      setCity(pinJson[pin][0]);
+    } else {
+      setState("");
+      setCity("");
+    }
+  }
 
   const handleChange = async (e) => {
-    console.log(user, email)
-    if (e.target.name == "name") { 
+    // console.log(user, email)
+    if (e.target.name == "name") {
       setName(e.target.value);
     } else if (e.target.name == "email") {
       setEmail(e.target.value);
@@ -57,15 +84,7 @@ const Checkout = ({ cart, clearCart, subTotal, addToCart, removeFromCart }) => {
     } else if (e.target.name == "pincode") {
       setPincode(e.target.value);
       if (e.target.value.length == 6) {
-        let pins = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/pincode`);
-        let pinJson = await pins.json();
-        if (Object.keys(pinJson).includes(e.target.value)) {
-          setState(pinJson[e.target.value][1]);
-          setCity(pinJson[e.target.value][0]);
-        } else {
-          setState("");
-          setCity("");
-        }
+        getPinCode(e.target.value)
       } else {
         setState("");
         setCity("");
@@ -122,11 +141,10 @@ const Checkout = ({ cart, clearCart, subTotal, addToCart, removeFromCart }) => {
           console.log("error => ", error);
         });
     } else {
-      console.log(txnRes.error);
-      if(txnRes.cartClear){
+      if (txnRes.cartClear) {
         clearCart();
       }
-      
+
       toast.error(txnRes.error, {
         position: "top-left",
         autoClose: 5000,
@@ -197,7 +215,7 @@ const Checkout = ({ cart, clearCart, subTotal, addToCart, removeFromCart }) => {
                 className="w-full bg-white rounded border border-gray-300 focus:border-violet-500 focus:ring-2 focus:ring-violet-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                 readOnly={true}
               />
-            ) : ( 
+            ) : (
               <input
                 type="email"
                 onChange={handleChange}
@@ -231,7 +249,7 @@ const Checkout = ({ cart, clearCart, subTotal, addToCart, removeFromCart }) => {
         <div className="px-2 w-1/2">
           <div className="mb-4">
             <label htmlFor="phone" className="leading-7 text-sm text-gray-600">
-              Phone Number 
+              Phone Number
             </label>
             <input
               type="phone"

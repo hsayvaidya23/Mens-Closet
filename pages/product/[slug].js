@@ -427,7 +427,6 @@ export async function getServerSideProps(context) {
       colorSizeSlug[item.color][item.size] = { slug: item.slug };
     }
   }
-
   return {
     props: {
       error: error,
