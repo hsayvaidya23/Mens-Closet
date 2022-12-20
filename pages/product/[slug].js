@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import mongoose from "mongoose";
 import Product from "../../models/Product";
-import Error from 'next/error'
+import Head from 'next/head';
 import Custom404 from "../404";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -68,7 +68,14 @@ const Post = ({ addToCart, buyNow, product, variants, error }) => {
 
   return (
     <>
-      <section className="text-gray-600 body-font overflow-hidden">
+       <Head>
+        <title>{product.title} -MensCloset.com</title>
+        <meta
+          name="viewport"
+          content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0"
+        />
+      </Head>
+      <section className="text-gray-600 body-font overflow-hidden min-h-screen">
         <ToastContainer
           position="bottom-center"
           autoClose={3000}

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from 'next/image'
+import Head from "next/head";
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { toast, ToastContainer } from "react-toastify";
@@ -80,7 +81,14 @@ const Login = () => {
         draggable
         pauseOnHover
       />
-      <div className="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+      <Head>
+        <title>Login - MensCloset.com</title>
+        <meta
+          name="viewport"
+          content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0"
+        />
+      </Head>
+      <div className="flex min-h-screen items-start justify-center py-24 px-4 sm:px-6 lg:px-8">
         <div className="w-full max-w-md space-y-8">
           <div>
             {/* <img

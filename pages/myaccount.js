@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import React, { useState, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Head from "next/head";
 
 const MyAccount = () => {
   const [name, setName] = useState("");
@@ -147,6 +148,13 @@ const MyAccount = () => {
         pauseOnHover
         theme="light"
       />
+      <Head>
+        <title>My Account - MensCloset.com</title>
+        <meta
+          name="viewport"
+          content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0"
+        />
+      </Head>
       <h1 className="text-3xl text-center font-bold">Update Your Account</h1>
       <h2 className="font-semibold text-xl">1. Delivery Details</h2>
 
