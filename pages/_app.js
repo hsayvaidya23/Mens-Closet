@@ -5,20 +5,21 @@ import Navbar from "../components/Navbar";
 import LoadingBar from "react-top-loading-bar";
 import "../styles/globals.css";
 
+
 function MyApp({ Component, pageProps }) {
   const [cart, setCart] = useState({});
   const [subTotal, setSubTotal] = useState(0);
   const [user, setUser] = useState({ value: null });
   const [key, setKey] = useState();
-  const [progress, setProgress] = useState(0)
+  const [progress, setProgress] = useState(0);
   const router = useRouter();
   useEffect(() => {
-    router.events.on('routeChangeStart', () => {
-      setProgress(40)
-    })
-    router.events.on('routeChangeComplete', () => {
-      setProgress(100)
-    })
+    router.events.on("routeChangeStart", () => {
+      setProgress(40);
+    });
+    router.events.on("routeChangeComplete", () => {
+      setProgress(100);
+    });
 
     try {
       if (localStorage.getItem("cart")) {
@@ -40,7 +41,7 @@ function MyApp({ Component, pageProps }) {
     localStorage.removeItem("myuser");
     setUser({ value: null });
     setKey(Math.random());
-    router.push('/')
+    router.push("/");
   };
 
   const saveCart = (myCart) => {
@@ -54,8 +55,8 @@ function MyApp({ Component, pageProps }) {
   };
 
   const addToCart = (itemCode, qty, price, name, size, variant) => {
-    if(Object.keys(cart.length == 0)){
-      setKey(Math.random())
+    if (Object.keys(cart.length == 0)) {
+      setKey(Math.random());
     }
     let newCart = cart;
     if (itemCode in cart) {
@@ -69,7 +70,7 @@ function MyApp({ Component, pageProps }) {
 
   const buyNow = (itemCode, qty, price, name, size, variant) => {
     let newCart = {};
-    newCart[itemCode]= { qty: 1, price, name, size, variant };
+    newCart[itemCode] = { qty: 1, price, name, size, variant };
     setCart(newCart);
     saveCart(newCart);
     router.push("/checkout");
@@ -100,25 +101,30 @@ function MyApp({ Component, pageProps }) {
         waitingTime={400}
         onLoaderFinished={() => setProgress(0)}
       />
-      { key && <Navbar
-        logout={logout}
-        user={user}
-        key={key}
-        cart={cart}
-        addToCart={addToCart}
-        removeFromCart={removeFromCart}
-        clearCart={clearCart}
-        subTotal={subTotal}
-      />}
-      <Component
-        buyNow={buyNow}
-        cart={cart}
-        addToCart={addToCart}
-        removeFromCart={removeFromCart}
-        clearCart={clearCart}
-        subTotal={subTotal}
-        {...pageProps}
-      />
+          {key && (
+            <Navbar
+              logout={logout}
+              user={user}
+              key={key}
+              cart={cart}
+              addToCart={addToCart}
+              removeFromCart={removeFromCart}
+              clearCart={clearCart}
+              subTotal={subTotal}
+            />
+          )}
+     
+          <Component
+            buyNow={buyNow}
+            cart={cart}
+            addToCart={addToCart}
+            removeFromCart={removeFromCart}
+            clearCart={clearCart}
+            subTotal={subTotal}
+            {...pageProps}
+          />
+
+
       <Footer />
     </>
   );
