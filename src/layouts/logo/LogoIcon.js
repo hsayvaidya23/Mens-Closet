@@ -1,12 +1,18 @@
 import React from "react";
 import { Link } from "@mui/material";
 import Image from "next/image";
-import LogoDark from "../../../assets/images/logos/logo-dark.svg";
 
 const LogoIcon = () => {
   return (
     <Link href="/">
-      <Image src={LogoDark} alt={LogoDark} />
+      <Image
+        src={"/logo.jpg"}
+        alt=""
+        width={200}
+        height={40}
+        objectFit="cover"
+      />
+      {/* MensCloset Admin */}
     </Link>
   );
 };

@@ -25,7 +25,7 @@ const Navbar = ({
   const router = useRouter();
   useEffect(() => {
     Object.keys(cart).length !== 0 && setSidebar(true);
-    let exempted = ["/checkout", "/order", "/orders", "/myaccount","/login","/signup"];
+    let exempted = ["/checkout", "/order", "/orders", "/myaccount","/login","/signup","/admin", "/admin/add", "/admin/allproducts", "/admin/imageuploader", "/admin/allorders"];
     if (exempted.includes(router.pathname)) {
       setSidebar(false);
     }
