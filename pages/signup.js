@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import Head from "next/head";
 import Image from 'next/image'
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -66,14 +67,16 @@ const Signup = () => {
         draggable
         pauseOnHover
       />
-      <div className="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+      <Head>
+        <title>Signup - MensCloset.com</title>
+        <meta
+          name="viewport"
+          content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0"
+        />
+      </Head>
+      <div className="flex min-h-screen items-start justify-center py-24 px-4 sm:px-6 lg:px-8">
         <div className="w-full max-w-md space-y-8">
           <div>
-            {/* <img
-              className="mx-auto h-12 w-auto"
-              src="/codeswearcircle.png"
-              alt="Your Company"
-            /> */}
             <Image  src='/logo.jpg' width="200" height="40" objectFit='cover' />
             <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
               Sign up to your account

@@ -158,7 +158,7 @@ const Checkout = ({ cart, clearCart, subTotal, addToCart, removeFromCart }) => {
     }
   };
   return (
-    <div className="container px-2 sm:m-auto">
+    <div className="container px-2 sm:m-auto min-h-screen">
       <ToastContainer
         position="top-left"
         autoClose={5000}
@@ -172,6 +172,7 @@ const Checkout = ({ cart, clearCart, subTotal, addToCart, removeFromCart }) => {
         theme="light"
       />
       <Head>
+        <title>Checkout -MensCloset.com</title>
         <meta
           name="viewport"
           content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0"
