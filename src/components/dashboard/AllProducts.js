@@ -56,7 +56,7 @@ const AllProducts = ({ products }) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {products.map((product) => (
+          {products && products.map((product) => (
             <TableRow key={product.slug}>
               <TableCell>
                 <Typography
