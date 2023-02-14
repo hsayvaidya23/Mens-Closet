@@ -4,6 +4,7 @@ import FullLayout from "../../src/layouts/FullLayout";
 import theme from "../../src/theme/theme";
 import { Grid, ImageList, ImageListItem } from "@mui/material";
 import BaseCard from "../../src/components/baseCard/BaseCard";
+import Image from "next/image";
 2;
 
 function srcset(image, size, rows = 1, cols = 1) {
@@ -121,11 +122,14 @@ const ImageUploader = () => {
                     cols={item.cols || 1}
                     rows={item.rows || 1}
                   >
-                    <img
+                    {/* <img
                       {...srcset(item.img, 121, item.rows, item.cols)}
                       alt={item.title}
                       loading="lazy"
-                    />
+                    /> */}
+                    <Image {...srcset(item.img, 121, item.rows, item.cols)}
+                      alt={item.title}
+                      loading="lazy" />
                   </ImageListItem>
                 ))}
               </ImageList>

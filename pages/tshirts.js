@@ -1,8 +1,9 @@
 import Link from "next/link";
+import Image from "next/image";
 import React from "react";
 import Product from "../models/Product";
 import mongoose from "mongoose";
-import Head from 'next/head';
+import Head from "next/head";
 
 const Tshirts = ({ products }) => {
   return (
@@ -18,7 +19,7 @@ const Tshirts = ({ products }) => {
         <div className="container px-5 py-24 mx-auto">
           <div className="flex flex-wrap -m-4 justify-center">
             {Object.keys(products).length === 0 && (
-              <p className='mx-5'>
+              <p className="mx-5">
                 Sorry all the T-shirts are out of stock. New Stock coming soon!
                 Stay Tuned!
               </p>
@@ -32,11 +33,19 @@ const Tshirts = ({ products }) => {
                 >
                   <div className="lg:w-1/5 md:w-1/2 p-4 w-full cursor-pointer shadow-lg m-5">
                     <a className="block relative rounded overflow-hidden">
-                      <img
+                      <div className="m-auto h-[30vh] md:h-[36vh] block relative">
+                        <Image
+                          src={products[item].img}
+                          alt="Picture of the author"
+                          layout="fill" 
+                          objectFit="contain" 
+                        />
+                      </div>
+                      {/* <img
                         alt="ecommerce"
                         className=" m-auto h-[30vh] md:h-[36vh] block"
                         src={products[item].img}
-                      />
+                      /> */}
                     </a>
                     <div className=" mt-4 text-center md:text-left">
                       <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">

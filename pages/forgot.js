@@ -5,7 +5,7 @@ import { TiLockClosed } from "react-icons/ti";
 import { useRouter } from "next/router";
 import Image from "next/image";
 
-const forgot = () => {
+const Forgot = () => {
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -206,4 +206,4 @@ const forgot = () => {
   );
 };
 
-export default forgot;
+export default Forgot;
