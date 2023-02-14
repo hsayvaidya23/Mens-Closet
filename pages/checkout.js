@@ -24,7 +24,7 @@ const Checkout = ({ cart, clearCart, subTotal, addToCart, removeFromCart }) => {
     if (myuser && myuser.token) {
       setUser(myuser);
       setEmail(myuser.email);
-      fetchData(myuser.token)
+      fetchData(myuser.token);
     }
   }, []);
 
@@ -56,10 +56,10 @@ const Checkout = ({ cart, clearCart, subTotal, addToCart, removeFromCart }) => {
     setAddress(res.address);
     setPincode(res.pincode);
     setPhone(res.phone);
-    getPinCode(res.pincode)
+    getPinCode(res.pincode);
   };
 
-  const getPinCode = async(pin) => {
+  const getPinCode = async (pin) => {
     let pins = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/pincode`);
     let pinJson = await pins.json();
     if (Object.keys(pinJson).includes(pin)) {
@@ -69,7 +69,7 @@ const Checkout = ({ cart, clearCart, subTotal, addToCart, removeFromCart }) => {
       setState("");
       setCity("");
     }
-  }
+  };
 
   const handleChange = async (e) => {
     // console.log(user, email)
@@ -84,7 +84,7 @@ const Checkout = ({ cart, clearCart, subTotal, addToCart, removeFromCart }) => {
     } else if (e.target.name == "pincode") {
       setPincode(e.target.value);
       if (e.target.value.length == 6) {
-        getPinCode(e.target.value)
+        getPinCode(e.target.value);
       } else {
         setState("");
         setCity("");
@@ -103,6 +103,7 @@ const Checkout = ({ cart, clearCart, subTotal, addToCart, removeFromCart }) => {
       address,
       pincode,
       phone,
+      city
     };
 
     let a = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/pretransaction`, {
