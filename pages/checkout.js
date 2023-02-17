@@ -26,7 +26,16 @@ const Checkout = ({ cart, clearCart, subTotal, addToCart, removeFromCart }) => {
       setEmail(myuser.email);
       fetchData(myuser.token);
     }
-  }, [fetchData]);
+  }, []);
+  // useEffect(() => {
+  //   const myuser = JSON.parse(localStorage.getItem("myuser"));
+
+  //   if (myuser && myuser.token) {
+  //     setUser(myuser);
+  //     setEmail(myuser.email);
+  //     fetchData(myuser.token);
+  //   }
+  // }, [fetchData]);
 
   useEffect(() => {
     if (
