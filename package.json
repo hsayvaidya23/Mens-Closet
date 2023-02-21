@@ -16,6 +16,8 @@
     "@emotion/styled": "^11.10.5",
     "@mui/lab": "^5.0.0-alpha.113",
     "@mui/material": "^5.11.1",
+    "@vercel/next": "^3.5.0",
+    "@vercel/node": "^2.9.6",
     "apexcharts": "^3.36.3",
     "cls": "^0.1.5",
     "clsx": "1.1.1",

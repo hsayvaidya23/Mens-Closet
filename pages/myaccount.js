@@ -32,7 +32,7 @@ const MyAccount = () => {
 
   const fetchData = async (token) => {
     let data = { token: token };
-    let a = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/getuser`, {
+    let a = await fetch(`http://localhost:3000/api/getuser`, {
       method: "POST", // or 'PUT'
       headers: {
         "Content-Type": "application/json",
@@ -48,7 +48,7 @@ const MyAccount = () => {
 
   const handleUserSubmit = async () => {
     let data = { token: user.token, address, name, phone, pincode, phone };
-    let a = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/updateuser`, {
+    let a = await fetch(`http://localhost:3000/api/updateuser`, {
       method: "POST", // or 'PUT'
       headers: {
         "Content-Type": "application/json",
@@ -78,7 +78,7 @@ const MyAccount = () => {
     if (npassword == cpassword) {
       let data = { token: user.token, password, cpassword, npassword };
       let a = await fetch(
-        `${process.env.NEXT_PUBLIC_HOST}/api/updatepassword`,
+        `http://localhost:3000/api/updatepassword`,
         {
           method: "POST", // or 'PUT'
           headers: {
