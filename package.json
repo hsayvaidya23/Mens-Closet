@@ -21,7 +21,7 @@
     "apexcharts": "^3.36.3",
     "cls": "^0.1.5",
     "clsx": "1.1.1",
-    "crypto-js": "^4.1.1",
+    "crypto-js": "^4.2.0",
     "feather-icons-react": "^0.6.2",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^6.12.0",
